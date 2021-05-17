@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import {  useContext } from 'react';
 import './App.css';
+// material ui
+
+import { LoginContext } from './LoginContext';
+import ProtectedRoute from './ProtectedRoute';
+import {  Route, Switch } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import AdminPanel from './components/AdminPanel';
+
+
 
 function App() {
+
+    
+
+   const { login, loginStatus } = useContext(LoginContext);
+   
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Switch>
+            <Route path="/" exact>
+                <LoginForm />
+            </Route>
+            <ProtectedRoute path="/panel" component={AdminPanel} isAuth={loginStatus} />
+            
+        </Switch>
+          
+         
     </div>
+
+
   );
 }
+
 
 export default App;

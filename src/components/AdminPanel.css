@@ -1,0 +1,46 @@
+.AdminPanel {
+  width: 85vw;
+  min-height: 100vh;
+}
+
+.AdminPanel__menu {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AdminPanel__menu ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+}
+.AdminPanel__menu ul a {
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 500;
+}
+.AdminPanel__menu ul a:hover {
+  filter: brightness(0.9);
+}
+
+.AdminPanel__menu ul a:not(:last-child) {
+  margin-right: 4rem;
+}
+
+.AdminPanel__menu ul a:nth-child(1) {
+  background: #1eae98;
+}
+.AdminPanel__menu ul a:nth-child(2) {
+  background: #c67ace;
+}
+.AdminPanel__menu ul a:nth-child(3) {
+  background: #ffb037;
+}
