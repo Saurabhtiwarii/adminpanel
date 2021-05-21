@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { LoginContext } from '../LoginContext';
 import { Redirect } from 'react-router-dom';
+import './LoginForm.css'
 const useStyles = makeStyles((theme) => ({
 
   root: {
@@ -41,7 +42,7 @@ function LoginForm(props) {
          {
             loginStatus && <Redirect to={ { pathname: '/panel', state: { from: props.location } }}/>
         }
-         <h1>Admin Panel Login</h1>
+         <h1 className="login-title">Admin Panel Login</h1>
          <form className={classes.root}>
             <TextField value={email} onChange={e=> setEmail(e.target.value)}  autoComplete="off"  type="email" label="Email" required> </TextField>
              <TextField value={password} onChange={e=> setPassword(e.target.value)} autoComplete="off"  type="password" label="Password" required></TextField>

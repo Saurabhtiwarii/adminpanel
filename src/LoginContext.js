@@ -1,10 +1,12 @@
 import React, { useState, createContext } from 'react';
+import getResources  from './ResourceReducer'
 
 export const LoginContext = createContext();
 
 
 
 export const LoginProvider = (props)=>{
+    // const [resourceState, resourceDispatch] = useReducer(getResources, {});
     let jwtT = '';
     const [loginStatus, setLoginStatus] = useState(false);
     const [jwtToken, setJwtToken] = useState({});
@@ -44,18 +46,18 @@ export const LoginProvider = (props)=>{
     try {
         const jwtT = localStorage.getItem('JWTToken');
         console.log(jwtT);
-        const logData = await  fetch('http://localhost:9090/api',{
+        const logData = await  fetch('http://localhost:9090/resource/streams',{
             method: "GET",
+            mode: 'cors',
            headers:{
-                "Authorization": jwtT
-        //    "" : "http://localhost:3000"
+                "Authorization": jwtT,
+    
         }
-        
-		
+
 		})
        const responseLogdata = await logData.json();
       
-        console.log(logData);
+        console.log(responseLogdata._embedded.streams);
        
         } catch(err) {
    

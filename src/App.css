@@ -1,7 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
 .App {
   width: 85vw;
   margin: 0 auto;
   font-family: "poppins", sans-serif;
+  background: white;
 }
 .login-form {
   width: 100%;
@@ -10,8 +19,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-h1 {
-  text-align: center;
-  font-weight: 500;
 }

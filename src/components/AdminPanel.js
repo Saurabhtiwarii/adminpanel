@@ -1,33 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './AdminPanel.css'
+import { Link, Switch, Route } from 'react-router-dom';
+
+import './AdminPanel.css';
 
 
 
 
 function AdminPanel() {
+    
+
 
     return (
-        <div className="AdminPanel">   
-           <div className="AdminPanel__menu">
+        <div className="AdminPanel">
+            
+                  <div className="AdminPanel__menu">
                     <ul>
-                        <Link href="" className="AdminPanel__menu-item">
-                        <li >
+                         <Link to={`/panel/resource`} className="AdminPanel__menu-item">
                             Resources
-                        </li>
-                        </Link>
+                        </Link> 
                         
 
-                        <Link href="" className="AdminPanel__menu-item">
-                        <li >
+                        <Link to="/panel/blog" className="AdminPanel__menu-item">
                             Blog
-                        </li>
                         </Link>
 
-                        <Link href="" className="AdminPanel__menu-item">
-                        <li>
+                        <Link to="/panel/feedback" className="AdminPanel__menu-item">
                             Feedback
-                        </li>
                         </Link>
                      </ul>
            </div>

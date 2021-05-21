@@ -7,7 +7,8 @@ import ProtectedRoute from './ProtectedRoute';
 import {  Route, Switch } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import AdminPanel from './components/AdminPanel';
-
+import Options from './components/Options';
+import { ResourceProvider } from './ResourceContext'; 
 
 
 function App() {
@@ -24,10 +25,11 @@ function App() {
             <Route path="/" exact>
                 <LoginForm />
             </Route>
-            <ProtectedRoute path="/panel" component={AdminPanel} isAuth={loginStatus} />
-            
+            <ProtectedRoute path="/panel" exact component={AdminPanel} isAuth={loginStatus} />
+            <Route path='/panel/:option' component={Options} />
+        
         </Switch>
-          
+
          
     </div>
 
