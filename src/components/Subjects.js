@@ -12,7 +12,7 @@ function Subjects() {
     const [ streamName, setStreamName] = useState('ALL');
     const [ addSubjectStatus, setAddSubjectStatus] = useState(false);
     const [addPopup, setAddPopup] = useState(false);
-    const [didMount, setDidMount] = useState(true);
+    // const [didMount, setDidMount] = useState(true);
 
     const { getSubject } = useContext(SubjectsContext);
 
@@ -21,13 +21,14 @@ function Subjects() {
     // console.log(stream);
 
     useEffect( ()=>{
-        if(didMount){
+     
+ 
              getSubject(stream).then(function(subjects){
              setSubjectList(subjects)
              });
-        }
+        
       
-      return () => setDidMount(false);
+  
 
 },[addSubjectStatus]);    
 
