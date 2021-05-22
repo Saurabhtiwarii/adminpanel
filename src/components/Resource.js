@@ -10,14 +10,17 @@ function Resource() {
      
     return (
         loginStatus ? (
-            <div className="resource">
+            <div className="resource-wrapper">
+                <div className="resource">
             <div className="stream-title"><h1>Streams Live</h1></div>
             {/* <hr/> */}
             <SubjectsProvider>
                  <ResourceMenu />
             </SubjectsProvider>
            
-        </div>
+                </div>
+            </div>
+            
         ) 
         :
         (

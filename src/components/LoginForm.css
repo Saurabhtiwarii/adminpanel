@@ -2,3 +2,7 @@
   text-align: center;
   font-weight: 500;
 }
+.login-form-wrapper {
+  width: 80vw;
+  margin: 0 auto;
+}

@@ -43,26 +43,26 @@ export const LoginProvider = (props)=>{
                  console.log(err);  
          }
     
-    try {
-        const jwtT = localStorage.getItem('JWTToken');
-        console.log(jwtT);
-        const logData = await  fetch('http://localhost:9090/resource/streams',{
-            method: "GET",
-            mode: 'cors',
-           headers:{
-                "Authorization": jwtT,
+    // try {
+    //     const jwtT = localStorage.getItem('JWTToken');
+    //     console.log(jwtT);
+    //     const logData = await  fetch('http://localhost:9090/resource/streams',{
+    //         method: "GET",
+    //         mode: 'cors',
+    //        headers:{
+    //             "Authorization": jwtT,
     
-        }
+    //     }
 
-		})
-       const responseLogdata = await logData.json();
+	// 	})
+    //    const responseLogdata = await logData.json();
       
-        console.log(responseLogdata._embedded.streams);
+    //     console.log(responseLogdata._embedded.streams);
        
-        } catch(err) {
+    //     } catch(err) {
    
-                 console.log(err);  
-         }
+    //              console.log(err);  
+    //      }
 
 }
          
@@ -70,9 +70,7 @@ export const LoginProvider = (props)=>{
         
     
 
-    const logData = ()=>{
-        console.log(jwtToken);
-    }
+   
            
    
         return (

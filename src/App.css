@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 .App {
-  width: 85vw;
+  width: 100vw;
   margin: 0 auto;
   font-family: "poppins", sans-serif;
   background: white;

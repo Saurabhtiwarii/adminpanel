@@ -28,7 +28,7 @@ export const SubjectsProvider = (props)=>{
    
        const responseLogdata = await logData.json();
        const subjectList = await responseLogdata._embedded.subjectModels;
-        console.log(subjectList);
+        // console.log(subjectList);
         // const streams = responseLogdata._embedded.streams;
         return subjectList;
     } catch(err){

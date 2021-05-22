@@ -11,17 +11,24 @@ function Subjects() {
     const [ subjectName, setSubjectName] = useState('');
     const [ streamName, setStreamName] = useState('ALL');
     const [ addSubjectStatus, setAddSubjectStatus] = useState(false);
-    const [addPopup, setAddPopup] = useState(null);
+    const [addPopup, setAddPopup] = useState(false);
+    const [didMount, setDidMount] = useState(true);
+
     const { getSubject } = useContext(SubjectsContext);
+
     const params = useParams();
     const stream= params.stream;
-    console.log(stream);
+    // console.log(stream);
+
     useEffect( ()=>{
-       getSubject(stream).then(function(subjects){
-           setSubjectList(subjects)
-             console.log(subjectList);
-       });
+        if(didMount){
+             getSubject(stream).then(function(subjects){
+             setSubjectList(subjects)
+             });
+        }
       
+      return () => setDidMount(false);
+
 },[addSubjectStatus]);    
 
 const subjectView = subjectList.map((subject, key)=>(
@@ -38,8 +45,7 @@ const subjectView = subjectList.map((subject, key)=>(
 
 const addTheSubject = (e)=>{
     e.preventDefault();
-    console.log(subjectName);
-    console.log(streamName);
+
     
     AddSubject(subjectName,streamName).then(function(status){
            setAddSubjectStatus(status);
@@ -53,7 +59,7 @@ if(addSubjectStatus === true){
     setAddPopup(true);
 }
 
-setTimeout(setAddPopup(true), 3000)
+setTimeout(()=>{setAddPopup(false)}, 3000)
 }
 
     
@@ -70,7 +76,7 @@ setTimeout(setAddPopup(true), 3000)
                 <h2 className="subjects-header__subjectCount">Subjects: {subjectList.length}</h2>
                 </nav>
             </header>
-            <div className="subject-wrapper">
+            <div className="subject-wrapper__content">
 
                 <div className="addSubjectForm">
                     <h3 className="addSubjectForm__title" >Add Subject</h3>

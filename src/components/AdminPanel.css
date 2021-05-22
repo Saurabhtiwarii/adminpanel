@@ -1,12 +1,14 @@
 .AdminPanel {
-  width: 85vw;
+  width: 100%;
   min-height: 100vh;
   background: rgb(43, 46, 51);
   padding: 0 3rem;
+  margin: 0 auto;
 }
 
 .AdminPanel__menu {
-  width: 100%;
+  width: 80vw;
+  margin: 0 auto;
   height: 100vh;
   display: flex;
   justify-content: center;

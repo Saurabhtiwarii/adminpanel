@@ -36,9 +36,8 @@ function LoginForm(props) {
            
         
        
-      
-
-     <div className="login-form">
+     <div className="login-form-wrapper">
+        <div className="login-form">
          {
             loginStatus && <Redirect to={ { pathname: '/panel', state: { from: props.location } }}/>
         }
@@ -53,6 +52,9 @@ function LoginForm(props) {
         {loginStatus && <h1>Hurray</h1>}
        
       </div>
+     </div>
+
+    
 
     )
 }

@@ -1,13 +1,19 @@
 .subject-wrapper {
   position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: rgb(55, 59, 66);
 }
 .subjects-header {
   width: 100%;
   background: #272a2f;
+  margin: 0 auto;
 }
 
 .subjects-header nav {
-  padding: 2rem 3rem;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 2rem 0;
   display: flex;
   justify-content: space-between;
 }
@@ -21,12 +27,13 @@
   color: #f6f6f8;
 }
 
-.subject-wrapper {
-  width: 100%;
-  min-height: 100vh;
-  background: rgb(55, 59, 66);
+.subject-wrapper__content {
+  width: 80vw;
+  margin: 0 auto;
 }
 .subjectList {
+  /* width: 80vw; */
+  margin: 0 auto;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -85,7 +92,7 @@
 }
 
 .addSubjectForm {
-  padding: 2rem 3rem;
+  padding: 2rem 0;
 }
 
 .addSubjectForm__title {
@@ -100,7 +107,7 @@
   display: inline-flex;
   flex-direction: column;
   width: 40%;
-  margin: 0 1rem;
+  margin: 0 2rem;
   color: #f6f6f8;
 }
 .addSubjectForm__subjectName input:focus,
@@ -123,7 +130,7 @@
 }
 
 .addSubjectForm__addButton-wrapper {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .addSubjectForm__addButton {
@@ -157,13 +164,14 @@
 
 .subjectAdded-popup {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   position: absolute;
   /* background: chartreuse; */
-
+  /* background: blue; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  pointer-events: none;
 }
 
 .subjectAdded-popup__msg {

@@ -7,7 +7,7 @@ function ResourceMenu() {
   
     useEffect(()=>{
          getResource().then(function(streams){
-        console.log(streams);
+        // console.log(streams);
         setStreamsList(streams);
     });
 

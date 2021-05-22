@@ -1,8 +1,19 @@
+.resource-wrapper {
+  width: 100vw;
+  background: rgb(55, 59, 66);
+}
+
+.resource {
+  width: 100%;
+  margin: 0 auto;
+}
 .stream-title h1 {
   font-weight: 500;
   font-size: 3rem;
   color: #446fff;
   padding: 0.8em 3rem;
+  width: 80vw;
+  margin: 0 auto;
 }
 .stream-title {
   background: #272a2f;
@@ -13,13 +24,11 @@ hr {
   height: 0.1rem;
   background: rgb(30, 31, 32, 0.2);
 }
-.resource {
-  width: 85vw;
-  margin: 0 auto;
-}
+
 .streamsList {
   list-style: none;
-  width: 100%;
+  width: 80vw;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(5rem, 6rem));
