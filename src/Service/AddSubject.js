@@ -1,10 +1,10 @@
 
 
-export async function AddSubject(subjectName, streamName) {
+export async function AddSubject(subjectName, streamName, imageBase64) {
   
     
         const jwtT = localStorage.getItem('JWTToken');
-        console.log(jwtT);
+      
        try{ const logData = await  fetch(`http://localhost:9090/subjects`,{
             method: "POST",
            headers:{
@@ -13,7 +13,7 @@ export async function AddSubject(subjectName, streamName) {
             },
 
         body: JSON.stringify({
-            "image": "wqwssadad",
+            "image": imageBase64,
             "name": subjectName,
             "stream": streamName
         })
@@ -24,6 +24,7 @@ export async function AddSubject(subjectName, streamName) {
       
     //    const subjectList = await responseLogdata._embedded.subjectModels;
         console.log(responseStatus);
+        console.log(imageBase64);
         return responseStatus;
         // const streams = responseLogdata._embedded.streams;
         // return subjectList;

@@ -15,7 +15,7 @@ export const ResourceProvider = (props)=>{
 
     try {
         const jwtT = localStorage.getItem('JWTToken');
-        console.log(jwtT);
+        
         const logData = await  fetch('http://localhost:9090/resource/streams',{
             method: "GET",
             mode: 'cors',

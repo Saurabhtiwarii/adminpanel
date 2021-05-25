@@ -1,10 +1,12 @@
 import React, { useState, useContext} from 'react';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { LoginContext } from '../LoginContext';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css'
+
+
 const useStyles = makeStyles((theme) => ({
 
   root: {
@@ -13,16 +15,18 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      width:'24rem'
+      width:'24rem'      
     },
     '&>*': {
       margin: theme.spacing(2, 0) ,
        width: '100%',
+       fontSize: "2rem"
     },
    '&>Button':{
       width: '100%',
       fontWeight: '500'
-   }
+   },
+   
   },
 }));
 
@@ -32,6 +36,7 @@ function LoginForm(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
      const classes = useStyles();
+     
     return (
            
         
@@ -43,7 +48,7 @@ function LoginForm(props) {
         }
          <h1 className="login-title">Admin Panel Login</h1>
          <form className={classes.root}>
-            <TextField value={email} onChange={e=> setEmail(e.target.value)}  autoComplete="off"  type="email" label="Email" required> </TextField>
+            <TextField  value={email}  onChange={e=> setEmail(e.target.value)}  autoComplete="off"  type="email" label="Email" required> </TextField>
              <TextField value={password} onChange={e=> setPassword(e.target.value)} autoComplete="off"  type="password" label="Password" required></TextField>
              <Button variant="contained" color="primary" noValidate onClick={()=>login(email,password)} >
               Login

@@ -7,15 +7,24 @@
   width: 100%;
   margin: 0 auto;
 }
-.stream-title h1 {
-  font-weight: 500;
-  font-size: 3rem;
+.stream-header__content h1 {
+  font-weight: 600;
+  font-size: 5rem;
   color: #446fff;
-  padding: 0.8em 3rem;
+  margin-bottom: 1rem;
+}
+
+.stream-header__content h2 {
+  color: #3e63dd;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.stream-header__content {
   width: 80vw;
   margin: 0 auto;
+  padding: 3rem;
 }
-.stream-title {
+.stream-header {
   background: #272a2f;
   width: 100%;
 }
@@ -30,24 +39,23 @@ hr {
   width: 80vw;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(5rem, 6rem));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(8rem, 10rem));
   justify-content: center;
-  grid-gap: 5rem;
-  padding: 0;
+  grid-gap: 4rem 8rem;
   /* margin-top: 3rem; */
   background: rgb(55, 59, 66);
-  padding: 4rem 3rem;
+  padding: 8rem 0;
   min-height: 100vh;
 }
 .streamsList li {
-  padding: 1rem 2rem;
+  padding: 2rem;
   border-radius: 0.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #f6f6f8;
   font-weight: 500;
   /* box-shadow: 2px 2px 2px rgb(43, 46, 51, 0.5),
@@ -58,8 +66,8 @@ hr {
 }
 
 .streamsList li:hover {
-  background: #446fff;
-  color: rgb(43, 46, 51);
+  filter: contrast(1.1);
+  /* color: rgb(43, 46, 51); */
 }
 .streamsList a {
   text-decoration: none;

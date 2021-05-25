@@ -8,14 +8,14 @@ import {  Route, Switch } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import AdminPanel from './components/AdminPanel';
 import Options from './components/Options';
-import { ResourceProvider } from './ResourceContext'; 
+
 
 
 function App() {
 
     
 
-   const { login, loginStatus } = useContext(LoginContext);
+   const { loginStatus } = useContext(LoginContext);
    
 
   return (
