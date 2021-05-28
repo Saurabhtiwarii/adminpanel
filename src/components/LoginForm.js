@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
 function LoginForm(props) {
        const { login, loginStatus } = useContext(LoginContext);
        
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('saurabh@gmail.com');
+    const [password, setPassword] = useState('saurabh');
      const classes = useStyles();
      
     return (

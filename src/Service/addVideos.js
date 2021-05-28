@@ -1,11 +1,11 @@
 
 
-export async function AddSubject(subjectName, streamName, imageBase64) {
+export async function addVideos(videoNumber, streamName, videoUrl, subjectId, description, title) {
   
     
         const jwtT = localStorage.getItem('JWTToken');
       
-       try{ const logData = await  fetch(`http://localhost:9090/subjects`,{
+       try{ const logData = await  fetch(`http://localhost:9090/videos`,{
             method: "POST",
            headers:{
                 "Authorization": jwtT,
@@ -13,9 +13,14 @@ export async function AddSubject(subjectName, streamName, imageBase64) {
             },
 
         body: JSON.stringify({
-            "image": imageBase64,
-            "name": subjectName,
-            "stream": streamName
+            "number": videoNumber,
+            "stream": streamName,
+            "title": title,
+            "description": description,
+            "url": videoUrl,
+            "subject":{
+                "id": subjectId
+            }
         })
       
 		})
@@ -24,7 +29,7 @@ export async function AddSubject(subjectName, streamName, imageBase64) {
       
     //    const subjectList = await responseLogdata._embedded.subjectModels;
         console.log(responseStatus);
-        return responseStatus;
+        // return responseStatus;
         // const streams = responseLogdata._embedded.streams;
         // return subjectList;
     } catch(err){

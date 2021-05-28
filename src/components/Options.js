@@ -4,9 +4,11 @@ import Resource from './Resource';
 import Blog from './Blog';
 import Feedback from './Feedback';
 import {ResourceProvider} from '../ResourceContext';
+import {VideoProvider} from '../VideoContext';
 import PageNotFound from './PageNotFound';
 import {SubjectsProvider} from '../SubjectsContext';
 import Subjects from './Subjects';
+import SubjectDetails from './SubjectDetails'
 
 import { LoginContext } from '../LoginContext';
 
@@ -25,10 +27,15 @@ function Options() {
                         <Resource /> 
                     </ResourceProvider>
                 </Route>
-                <Route path="/panel/resource/:stream/subjects">
+                <Route path="/panel/resource/:stream/subjects" exact>
                     <SubjectsProvider>
                         <Subjects />
                         </SubjectsProvider> 
+                </Route>
+                <Route path={`/panel/resource/:stream/subjects/:subjectId`} >
+                    <VideoProvider>
+                         <SubjectDetails/>
+                    </VideoProvider>
                 </Route>
 
                 <Route path="/panel/blog">

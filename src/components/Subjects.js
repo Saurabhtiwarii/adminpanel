@@ -1,23 +1,24 @@
 import React,{useState, useEffect, useContext} from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, Switch, Route, Link } from 'react-router-dom'
 import { SubjectsContext } from '../SubjectsContext';
-import NoSubjectAdded from './NoSubjectAdded';
+import ListEmptyMessage from './ListEmptyMessage';
 import {AddSubject} from '../Service/AddSubject';
 
 import addIcon from '../addIcon.svg'
+import dummyImage from '../dummy-image.svg'
 import './Subjects.css'
+
 
 function Subjects() {
     const [ subjectList, setSubjectList] = useState([]);
     const [ subjectName, setSubjectName] = useState('');
-    const [ streamName, setStreamName] = useState('ALL');
     const [ addSubjectStatus, setAddSubjectStatus] = useState(false);
     const [imageBase64, setImageBase64] = useState("");
   
     const { getSubject } = useContext(SubjectsContext);
-
-    const params = useParams();
-    const stream= params.stream;
+            const params = useParams();
+             const stream= params.stream;
+             
 
     useEffect( ()=>{
              getSubject(stream).then(function(subjects){
@@ -26,28 +27,39 @@ function Subjects() {
 
 },[addSubjectStatus,stream,getSubject]);    
 
-const subjectView = subjectList.map((subject)=>(
-              <a href="https://www.google.co.in/" key={subject.id}>
-                  <li className="subject">
-                    <div className="subject__name"> {subject.name}</div> 
-                    <div className="subject__imageWrapper">
-                        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c3R1ZHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="subject name" />
+const subjectView = subjectList.map((subject)=>{
+           
+            return(
+             
+                  <li key={subject.id} className="subject">
+                      <div className="subject__content">
+                        <div className="subject__name"> {subject.name}</div> 
+                    <div className="subject__videosCount">
+                     <p>Videos Live : <span>{subject.videos.length}</span> </p>  
                     </div>
+                      </div>
+                     <Link className="subject__link" to={`/panel/resource/${stream}/subjects/${subject.id}`} >More Details</Link>
+                 
                     </li>
                   
-            </a>
-            ));
+           
+                )
+             }
+        );
 
 const addTheSubject = (e)=>{
     
     e.preventDefault();
     const subjectAdded = document.querySelector('.subjectAdded-popup__msg');
     // console.log(imageBase64);
-    AddSubject(subjectName,streamName, imageBase64).then(function(status){
+    AddSubject(subjectName,stream, imageBase64).then(function(status){
         if(status === true){
              subjectAdded.classList.add('active');
              setAddSubjectStatus(!addSubjectStatus);
+             setImageBase64("");
         }
+
+        
            
 })
 
@@ -90,6 +102,8 @@ const convertBase64 = (file)=>{
 }
     
     return (
+       
+
         <div className="subject-wrapper">
             <div className={`subjectAdded-popup  `}>
                 <div className={`subjectAdded-popup__msg`}>
@@ -114,43 +128,56 @@ const convertBase64 = (file)=>{
 
                         <div className="addSubjectForm__streamName">
                            <label htmlFor="streamName">Choose a stream</label>
-                            <select value={streamName} onChange={(e)=>setStreamName(e.target.value)} name="streamName" id="streamName">
-                                <option value="All">All</option>
-                                <option value="CSE">CSE</option>
-                                <option value="CIVIL">CIVIL</option>
-                                <option value="EC">EC</option>
-                                <option value="EEE">EEE</option>
-                                <option value="ME">ME</option>
+                            <select value={stream}  name="streamName" id="streamName">
+                                <option value="CSE">{stream}</option>
                             </select>
                         </div>
 
                         <div className="addSubjectForm__image">
-                            <label className="addSubjectForm__image-label" htmlFor="subjectImage">
-                               <span>click here to upload image</span> 
+                            <div className="addSubjectForm__image-input">
+                                <label className="addSubjectForm__image-label" htmlFor="subjectImage">
+                               <span>Click here to upload image</span> 
                                 </label>
                             <input type="file" onChange={(e)=>{ 
                                 getBase64(e).then(function(base64){
                                     setImageBase64(base64)
                                 })
                             }}  name="subjectImage" id="subjectImage"/>
-                           
+                            </div>
+                            
+                            <div className="addSubjectForm__image-imageContainer">
+                                <img src={imageBase64 ? imageBase64 : dummyImage } alt="asa"  />
+                            </div>
+                             
                         </div>
-                         <img src={imageBase64} alt="asa" width="400" height="400" />
+                        
                         <div className="addSubjectForm__addButton-wrapper">
                             <button className="addSubjectForm__addButton" onClick={addTheSubject}> <img src={addIcon} alt="+" /> Add</button>
                         </div>
                         
                     </form>
                 </div>
-                 <ul className="subjectList">
-              {  subjectList.length !== 0 ? subjectView 
-                   : <NoSubjectAdded /> 
-                }
-            
-            </ul>
+
+                <div className="subjectList">
+                    <h1 className="subjectList__title">Subjects Live</h1>
+                          <ul className="subjectList__content">
+                              {  subjectList.length !== 0 ? subjectView 
+                              : <ListEmptyMessage message="No subject is added yet ..."/> 
+                               }
+                         </ul>
+                </div>
+               
             </div>
+
+         
            
         </div>
+                        
+     
+
+            
+
+       
     )
 }
 
