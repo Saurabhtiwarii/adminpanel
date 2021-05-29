@@ -27,11 +27,10 @@ export async function addVideos(videoNumber, streamName, videoUrl, subjectId, de
     
         const responseStatus = logData.ok;
       
-    //    const subjectList = await responseLogdata._embedded.subjectModels;
+
         console.log(responseStatus);
-        // return responseStatus;
-        // const streams = responseLogdata._embedded.streams;
-        // return subjectList;
+        return responseStatus;
+       
     } catch(err){
         
 

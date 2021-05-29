@@ -18,16 +18,22 @@ function SubjectDetails() {
      const [videoListUpdater, setVideoListUpdater] = useState(false);
     const subjectId = params.subjectId;
     const { getVideos } = useContext(VideoContext);
-   
+    
     useEffect(()=>{
-         getSubjectDetails(subjectId).then(function(subjectInfo){
+             getSubjectDetails(subjectId).then(function(subjectInfo){
             const {name, stream} = subjectInfo;
             setVideoSubject(name);
             setVideoStream(stream);
     })
+    },[])
+   
+    useEffect(()=>{
+      
          getVideos(subjectId).then(function(videos){
              const result = videos;
-            setVideoList(result);
+            setVideoList((prevstate, props)=>{
+                return result;
+            });
         });
 
     },[videoListUpdater])
@@ -38,11 +44,8 @@ function SubjectDetails() {
         console.log(videoNumber);
 
         addVideos(videoNumber, videoStream, videoUrl, subjectId,videoDesc, videoTitle).then(function(status){
-            if(status === true){
-              getVideos(subjectId).then(function(videos){
-             const result = videos;
-            setVideoList(result);
-        });
+            if(status){
+                setVideoListUpdater(!videoListUpdater);
             }
         });
     }
