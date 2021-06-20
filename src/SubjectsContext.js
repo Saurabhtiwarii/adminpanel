@@ -30,7 +30,6 @@ export const SubjectsProvider = (props)=>{
        console.log(responseLogdata);
        const subjectList = await responseLogdata._embedded.subjectModels;
         
-        const streams = responseLogdata._embedded.streams;
         return subjectList;
     } catch(err){
         

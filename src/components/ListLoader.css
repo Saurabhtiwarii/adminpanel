@@ -1,0 +1,20 @@
+.ListLoader {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ListLoader__loader {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: #373b42;
+  border-right: 0.5rem solid rgb(68, 111, 255);
+  animation: list-loader-anm 0.6s linear infinite;
+}
+
+@keyframes list-loader-anm {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -31,7 +31,7 @@ const subjectView = subjectList.map((subject)=>{
            
             return(
              
-                  <li key={subject.id} className="subject">
+                  <li key={subject.id} className="subject" >
                       <div className="subject__content">
                         <div className="subject__name"> {subject.name}</div> 
                     <div className="subject__videosCount">

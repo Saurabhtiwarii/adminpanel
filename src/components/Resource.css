@@ -22,7 +22,7 @@
 .stream-header__content {
   width: 80vw;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 3rem 0;
 }
 .stream-header {
   background: #272a2f;

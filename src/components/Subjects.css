@@ -82,7 +82,9 @@
   /* width: 80%; */
   border-radius: 3px;
   /* border: 2px solid red; */
+  position: relative;
 }
+
 .subject a {
   text-decoration: none;
 }
