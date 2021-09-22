@@ -99,8 +99,9 @@
   padding: 2rem 0;
 }
 .subjectDetails__form form {
+  width: 80vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 50%));
   gap: 4rem;
   grid-template-areas: "";
 }

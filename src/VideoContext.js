@@ -22,7 +22,6 @@ export const VideoProvider = (props)=>{
     
         const response = await logData.json();
         const videosList  = response._embedded.videos;
-        console.log(videosList);
         return videosList;
     
     } catch(err){

@@ -128,8 +128,8 @@ const convertBase64 = (file)=>{
 
                         <div className="addSubjectForm__streamName">
                            <label htmlFor="streamName">Choose a stream</label>
-                            <select value={stream}  name="streamName" id="streamName">
-                                <option value="CSE">{stream}</option>
+                            <select defaultValue={stream}  name="streamName" id="streamName">
+                                <option value={stream}>{stream}</option>
                             </select>
                         </div>
 

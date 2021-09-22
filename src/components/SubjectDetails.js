@@ -82,14 +82,14 @@ function SubjectDetails() {
                      <form>
                          <div className="subjectDetails__form-videoStream">
                            <label htmlFor="videoStream">Stream</label>
-                            <select value="CSE"  name="videoStream" id="videoStream">
+                            <select defaultValue={videoStream}  name="videoStream" id="videoStream">
                                 <option value={videoStream}>{videoStream}</option>
                             </select>
                         </div>
 
                         <div className="subjectDetails__form-videoSubject">
                            <label htmlFor="videoSubject">Subject</label>
-                            <select value="CN"  name="videoSubject" id="videoSubject">
+                            <select defaultValue={videoSubject}  name="videoSubject" id="videoSubject">
                                 <option value={videoSubject}>{videoSubject}</option>
                             </select>
                         </div>

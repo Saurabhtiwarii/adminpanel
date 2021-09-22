@@ -19,7 +19,6 @@ export async function getSubjectDetails(subjectId) {
     //    const subjectList = await responseLogdata._embedded.subjectModels;
         
         const {name, stream} = subjectDesc;
-        console.log(subjectDesc);
         return {name, stream};
         // const streams = responseLogdata._embedded.streams;
         // return subjectList;

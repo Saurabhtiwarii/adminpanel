@@ -15,7 +15,6 @@ import { LoginContext } from '../LoginContext';
 function Options() {
     const params = useParams();
     const {loginStatus} = useContext(LoginContext);
-    console.log(params)
 
 
     if(loginStatus){
