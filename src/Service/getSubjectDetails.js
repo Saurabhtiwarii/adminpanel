@@ -17,16 +17,12 @@ export async function getSubjectDetails(subjectId) {
         const responseStatus = logData.ok;
         const subjectDesc = await logData.json();
     //    const subjectList = await responseLogdata._embedded.subjectModels;
-        
-        const {name, stream} = subjectDesc;
-        return {name, stream};
+        const {name, stream, image} = subjectDesc;
+        return {name, stream, image};
         // const streams = responseLogdata._embedded.streams;
         // return subjectList;
     } catch(err){
-        
-
             console.log(err);
-        
     }
        
 

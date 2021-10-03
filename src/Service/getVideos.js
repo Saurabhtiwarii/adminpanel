@@ -3,12 +3,12 @@
 
 
 // videoNumber, streamName, videoUrl, subjectId,description, title
-export async function getVideos(subjectId) {
+export async function getVideos(subjectId, videoSubject) {
   
     
         const jwtT = localStorage.getItem('JWTToken');
       
-       try{ const logData = await  fetch(`http://localhost:9090/api/subjects/${subjectId}/videos`,{
+       try{ const logData = await  fetch(`http://localhost:9090/admin/stream/${videoSubject}/subjects/${subjectId}/videos`,{
             method: "GET",
            headers:{
                 "Authorization": jwtT,

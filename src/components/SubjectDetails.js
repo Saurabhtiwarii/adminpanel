@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import { getSubjectDetails } from '../Service/getSubjectDetails';
 import { addVideos } from '../Service/addVideos';
-// import { getVideos } from '../Service/getVideos';
+import { getVideos } from '../Service/getVideos';
 import { VideoContext } from '../VideoContext';
 import './SubjectDetails.css';
 import ListEmptyMessage from './ListEmptyMessage';
@@ -16,20 +16,22 @@ function SubjectDetails() {
      const [videoSubject, setVideoSubject] = useState('');
      const [videoStream, setVideoStream] = useState('');
      const [videoListUpdater, setVideoListUpdater] = useState(false);
+     const [subjectImage, setSubjectImage] = useState(false);
     const subjectId = params.subjectId;
     const { getVideos } = useContext(VideoContext);
     
     useEffect(()=>{
-             getSubjectDetails(subjectId).then(function(subjectInfo){
-            const {name, stream} = subjectInfo;
+            getSubjectDetails(subjectId).then(function(subjectInfo){
+            const {name, stream, image} = subjectInfo;
             setVideoSubject(name);
             setVideoStream(stream);
+            setSubjectImage(image)
     })
     },[])
    
     useEffect(()=>{
       
-         getVideos(subjectId).then(function(videos){
+         getVideos(subjectId,videoSubject).then(function(videos){
              const result = videos;
             setVideoList((prevstate, props)=>{
                 return result;
@@ -43,7 +45,7 @@ function SubjectDetails() {
         const videoNumber = videoList.length + 1;
         console.log(videoNumber);
 
-        addVideos(videoNumber, videoStream, videoUrl, subjectId,videoDesc, videoTitle).then(function(status){
+        addVideos(videoNumber, videoStream, videoUrl, subjectId,videoDesc, videoTitle, videoSubject, subjectImage).then(function(status){
             if(status){
                 setVideoListUpdater(!videoListUpdater);
             }

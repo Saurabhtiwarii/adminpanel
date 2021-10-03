@@ -7,7 +7,7 @@ export const LoginProvider = (props)=>{
     const [loginStatus, setLoginStatus] = useState(false);
     const login = async (userEmail, password)=>{
       const data ={
-        username: userEmail,
+        email: userEmail,
         password: password
       }
 

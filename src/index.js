@@ -10,8 +10,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <LoginProvider>
-    <App />
-    </LoginProvider>
+        <App />
+      </LoginProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

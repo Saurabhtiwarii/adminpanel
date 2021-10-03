@@ -16,7 +16,7 @@ export const SubjectsProvider = (props)=>{
         
         const jwtT = localStorage.getItem('JWTToken');
    
-       try{ const logData = await  fetch(`http://localhost:9090/resource/streams/${stream}/subjects`,{
+       try{ const logData = await  fetch(`http://localhost:9090/admin/streams/${stream}/subjects`,{
             method: "GET",
             mode: 'cors',
            headers:{
@@ -24,12 +24,13 @@ export const SubjectsProvider = (props)=>{
         }
 
 		})
-    
+        
+       
    
        const responseLogdata = await logData.json();
-       const subjectList = await responseLogdata._embedded.subjectModels;
+       console.log(responseLogdata);
         
-        return subjectList;
+        return responseLogdata;
     } catch(err){
         
 

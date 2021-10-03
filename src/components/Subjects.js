@@ -22,12 +22,13 @@ function Subjects() {
 
     useEffect( ()=>{
              getSubject(stream).then(function(subjects){
+                 console.log(subjects);
              setSubjectList(subjects)
              });
 
 },[addSubjectStatus,stream,getSubject]);    
 
-const subjectView = subjectList.map((subject)=>{
+const subjectView = subjectList && subjectList.map((subject)=>{
            
             return(
              
@@ -35,7 +36,7 @@ const subjectView = subjectList.map((subject)=>{
                       <div className="subject__content">
                         <div className="subject__name"> {subject.name}</div> 
                     <div className="subject__videosCount">
-                     <p>Videos Live : <span>{subject.videos.length}</span> </p>  
+                     <p>Videos Live : <span>{subject.totalVideos}</span> </p>  
                     </div>
                       </div>
                      <Link className="subject__link" to={`/panel/resource/${stream}/subjects/${subject.id}`} >More Details</Link>
@@ -161,7 +162,7 @@ const convertBase64 = (file)=>{
                 <div className="subjectList">
                     <h1 className="subjectList__title">Subjects Live</h1>
                           <ul className="subjectList__content">
-                              {  subjectList.length !== 0 ? subjectView 
+                              { subjectList && subjectList.length !== 0 ? subjectView 
                               : <ListEmptyMessage message="No subject is added yet ..."/> 
                                }
                          </ul>

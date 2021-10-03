@@ -13,6 +13,7 @@ function Resource() {
   
     useEffect(()=>{
          getResource().then(function(streams){
+             console.log(streams);
         setStreamsList(streams);
     });
 
@@ -26,7 +27,7 @@ function Resource() {
             <div className="stream-header">
                 <div className="stream-header__content">
                      <h1>Streams Live</h1>
-                     <h2>Total Streams: {streamsList.length} <span></span></h2>
+                     <h2>Total Streams: {streamsList && streamsList.length} <span></span></h2>
                 </div>
             </div>
             {/* <hr/> */}

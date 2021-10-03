@@ -16,17 +16,17 @@ export const ResourceProvider = (props)=>{
     try {
         const jwtT = localStorage.getItem('JWTToken');
         
-        const logData = await  fetch('http://localhost:9090/resource/streams',{
+        const logData = await  fetch('http://localhost:9090/admin/streams',{
             method: "GET",
             mode: 'cors',
            headers:{
                 "Authorization": jwtT,
+                
         }
-
 		})
-       const responseLogdata = await logData.json();
+        const streams = await logData.json();
       
-        const streams = responseLogdata._embedded.streams;
+
         return streams;
        
         } catch(err) {
